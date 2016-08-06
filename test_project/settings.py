@@ -24,8 +24,6 @@ SECRET_KEY = '(&7)ub7ecukla=wzzb1h-u*x3l(93-=r*edcod@%)zn=v7u+@f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
-
 ALLOWED_HOSTS = []
 
 
@@ -92,3 +90,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                # Required by allauth template tags
+                'django.contrib.auth.context_processors.auth',
+                # `allauth` needs this from django
+                'django.template.context_processors.request',
+            ],
+        },
+    },
+]
